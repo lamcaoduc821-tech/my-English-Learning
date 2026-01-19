@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Article } from '../types';
-import { generateAudioNarration, decodeBase64, decodeAudioData } from '../services/geminiService';
+import { Article } from '../types.ts';
+import { generateAudioNarration, decodeBase64, decodeAudioData } from '../services/geminiService.ts';
 import { Play, Pause, RotateCcw, Loader2, Sparkles, BookOpenCheck, FastForward, Rewind, Languages } from 'lucide-react';
 
 interface ArticleReaderProps {

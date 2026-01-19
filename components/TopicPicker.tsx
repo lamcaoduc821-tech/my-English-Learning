@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { TOPIC_OPTIONS, Headline } from '../types';
+import { TOPIC_OPTIONS, Headline } from '../types.ts';
 import { Newspaper, ArrowRight, BookOpen, Globe, PlayCircle } from 'lucide-react';
 
 interface TopicPickerProps {
@@ -48,7 +48,7 @@ export const TopicPicker: React.FC<TopicPickerProps> = ({ onSelect, onSelectHead
           ))}
         </div>
 
-        {/* Sidebar Headlines - Now Actionable */}
+        {/* Sidebar Headlines */}
         <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 h-fit shadow-inner">
           <h2 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
             <Globe className="w-4 h-4" /> Global Headlines

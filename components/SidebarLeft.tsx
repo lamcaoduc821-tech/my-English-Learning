@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StudySession } from '../types';
+import { StudySession } from '../types.ts';
 import { Calendar, Clock, BookOpen } from 'lucide-react';
 
 interface SidebarLeftProps {
@@ -68,11 +68,3 @@ export const SidebarLeft: React.FC<SidebarLeftProps> = ({ history }) => {
     </div>
   );
 };
-
-// Re-defining some simple lucide icons as standard SVGs if lucide-react isn't available
-// but assuming environment allows standard packages. Using inline SVGs for safety.
-const LucideIcon: React.FC<{ d: string, className?: string }> = ({ d, className }) => (
-  <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d={d} />
-  </svg>
-);

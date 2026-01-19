@@ -1,8 +1,17 @@
 
 import { GoogleGenAI, Type, Modality } from "@google/genai";
-import { Article, VocabularyWord, Headline } from "../types";
+import { Article, VocabularyWord, Headline } from "../types.ts";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+// Safe API Key retrieval
+const getApiKey = () => {
+  try {
+    return (typeof process !== 'undefined' && process.env && process.env.API_KEY) || '';
+  } catch {
+    return '';
+  }
+};
+
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 const ARTICLE_GENERATION_PROMPT = `Generate a comprehensive, high-quality long-form news report. 
 The article must be approximately 1000 words long, written in a sophisticated journalistic style (like The Economist or NYT).

@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
-import { SidebarLeft } from './components/SidebarLeft';
-import { SidebarRight } from './components/SidebarRight';
-import { TopicPicker } from './components/TopicPicker';
-import { ArticleReader } from './components/ArticleReader';
-import { AppState, Article, VocabularyWord, StudySession, Headline } from './types';
-import { generateArticleForTopic, getWordDefinition, fetchNewsHeadlines, generateArticleFromHeadline } from './services/geminiService';
+import { SidebarLeft } from './components/SidebarLeft.tsx';
+import { SidebarRight } from './components/SidebarRight.tsx';
+import { TopicPicker } from './components/TopicPicker.tsx';
+import { ArticleReader } from './components/ArticleReader.tsx';
+import { AppState, Article, VocabularyWord, StudySession, Headline } from './types.ts';
+import { generateArticleForTopic, getWordDefinition, fetchNewsHeadlines, generateArticleFromHeadline } from './services/geminiService.ts';
 import { Loader2, Menu, X, CheckCircle2 } from 'lucide-react';
 
 const App: React.FC = () => {

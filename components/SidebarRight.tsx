@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { VocabularyWord } from '../types';
+import { VocabularyWord } from '../types.ts';
 import { Plus, Search, Trash2, Bookmark, Languages, Quote, Layers, MessageSquare, Tag } from 'lucide-react';
 
 interface SidebarRightProps {
