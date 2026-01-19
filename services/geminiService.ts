@@ -2,16 +2,36 @@
 import { GoogleGenAI, Type, Modality } from "@google/genai";
 import { Article, VocabularyWord, Headline } from "../types.ts";
 
-// Safe API Key retrieval
-const getApiKey = () => {
+/**
+ * Robustly retrieves the API Key from the environment.
+ * Supports standard process.env and Vite-specific meta.env.
+ */
+const getApiKey = (): string => {
   try {
-    return (typeof process !== 'undefined' && process.env && process.env.API_KEY) || '';
-  } catch {
-    return '';
+    // 1. Check for process.env (Standard Node/Vercel)
+    if (typeof process !== 'undefined' && process.env?.API_KEY) {
+      return process.env.API_KEY;
+    }
+    // 2. Check for import.meta.env (Vite standard)
+    // @ts-ignore
+    if (import.meta.env?.VITE_API_KEY) {
+      // @ts-ignore
+      return import.meta.env.VITE_API_KEY;
+    }
+    // 3. Fallback for window injection
+    // @ts-ignore
+    if (typeof window !== 'undefined' && window.process?.env?.API_KEY) {
+      // @ts-ignore
+      return window.process.env.API_KEY;
+    }
+  } catch (e) {
+    console.warn("API Key access error:", e);
   }
+  return "";
 };
 
-const ai = new GoogleGenAI({ apiKey: getApiKey() });
+const API_KEY = getApiKey();
+const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 const ARTICLE_GENERATION_PROMPT = `Generate a comprehensive, high-quality long-form news report. 
 The article must be approximately 1000 words long, written in a sophisticated journalistic style (like The Economist or NYT).
