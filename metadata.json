@@ -1,0 +1,7 @@
+{
+  "name": "Daily Lexis: News-Powered English Learning",
+  "description": "An innovative English learning platform that provides daily high-quality news articles based on user-selected topics, complete with professional AI-generated audio narration, study history tracking, and a real-time vocabulary builder.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
